@@ -1,0 +1,8 @@
+select personID, personname, age,
+case
+when age < 18 then "Child"
+when age < 29 then "Late teens/Twenties"
+when age < 39 then "Thirtysomething"
+else "Other"
+end as Stage
+from person;

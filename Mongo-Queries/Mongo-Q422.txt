@@ -1,0 +1,2 @@
+
+db.docs.aggregate([{$match: {level: {$exists:true}}}, {$project: {_id:0, name:1, Honours: {$cond: {if: {$gte: ["$level", 8]}, then: true, else: false}}}}, {$sort:{name:1}}])
