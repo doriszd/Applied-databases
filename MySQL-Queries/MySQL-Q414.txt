@@ -1,0 +1,7 @@
+select city.name, country.name, countrylanguage.language, countrylanguage.percentage
+from ((city
+inner join country on city.id = country.Capital)
+inner join countrylanguage on city.CountryCode = countrylanguage.CountryCode)
+where country.Continent = "North America"
+and countrylanguage.IsOfficial = "T"
+order by city.name, country.Name, countrylanguage.Language ASC;

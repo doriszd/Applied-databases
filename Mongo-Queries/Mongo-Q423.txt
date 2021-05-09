@@ -1,0 +1,1 @@
+db.docs.aggregate([{$match:{qualifications:{$exists:true}}},{$group: {_id:0, "Qualified Students": {$sum:1}}},{$project:{_id:0}}])

@@ -1,0 +1,12 @@
+select p.personname, c.name,
+case
+WHEN (DATEDIFF(dateLeft, dateArrived)) < 20 then "Short"
+WHEN (DATEDIFF(dateLeft, dateArrived)) <99 then "Long"
+else "Very Long"
+end as "Stay Length"
+from person as p
+join hasvisitedcity as hv
+on p.personID=hv.personID
+left join city as c
+on hv.cityID=c.ID
+order by p.personname, c.name;
